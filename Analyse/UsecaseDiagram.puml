@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+actor "User" as User
+rectangle "App" {
+    usecase "Log out" as Logout
+    usecase "Manage ToDo lists" as ManageToDoLists
+    usecase "Manage tasks" as ManageTasks
+    usecase "Log in" as Login
+    usecase "Mark task as completed" as MarkCompleted
+    usecase "Add task importance" as AddImportance
+    usecase "Remove task importance" as RemoveImportance
+}
+User --- Logout
+User -- ManageToDoLists 
+User -- ManageTasks
+User -- AddImportance
+User -- MarkCompleted
+User --- Login 
+User -- RemoveImportance
+
+ManageToDoLists .-> Login : <<include>>
+ManageTasks .-> Login : <<include>>
+MarkCompleted .-> Login : <<include>>
+AddImportance .-> Login : <<include>>
+RemoveImportance .-> Login : <<include>> 
+
+@enduml
